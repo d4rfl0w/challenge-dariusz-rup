@@ -1,6 +1,6 @@
 services:
-    php:
-        image: ghcr.io/sylius/sylius-php:8.2-alpine
+    #    php:
+    #        image: ghcr.io/sylius/sylius-php:8.2-alpine
     mysql:
         image: mysql:8.0
         platform: linux/amd64
@@ -13,8 +13,10 @@ services:
             MYSQL_ALLOW_EMPTY_PASSWORD: 1
         cap_add:
             - SYS_NICE # prevent "mbind: Operation not permitted" errors
-    nginx:
-        image: ghcr.io/sylius/sylius-nginx:latest
-    mailhog:
-        # do not use in production!
-        image: mailhog/mailhog:latest
+        ports:
+            - "3307:3306"
+#    nginx:
+#        image: ghcr.io/sylius/sylius-nginx:latest
+#    mailhog:
+#        # do not use in production!
+#        image: mailhog/mailhog:latest

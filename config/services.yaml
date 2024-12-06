@@ -28,7 +28,11 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
- 
+            
+    app.form.type.order_note:
+        class: App\Form\Type\OrderNoteType
+        tags:
+            - { name: form.type, alias: sylius_order }    
         
             
         
